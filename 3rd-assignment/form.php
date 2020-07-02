@@ -1,97 +1,79 @@
-<!DOCTYPE html>
-<html>
+<!DOCmajor html>
+    <html>
 
-<head>
-    <title>TWO</title>
-</head>
+    <head>
+        <title>TWO</title>
+    </head>
 
-<body>
-    <h1 align="center">Patients records</h1>
+    <body>
+        <h1 align="center">New student application forms</h1>
 
-    <?php
-    $name = $room = $type = $gender = $status = $date = "";
+        <?php
+        $name = $address = $major = $filesss = "";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"]) && isset($_POST["room"]) && isset($_POST["type"]) && isset($_POST["gender"])) {
-        $name = $_POST["name"];
-        $room = $_POST["room"];
-        $type = $_POST["type"];
-        $gender = $_POST["gender"];
-        $status = $_POST["status"];
-        $date = $_POST["date"];
-    }
-    ?>
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["major"])) {
+            $name = $_POST["name"];
+            $address = $_POST["address"];
+            $major = $_POST["major"];
+            $filesss = $_POST["filesss"];
+        }
+        ?>
 
 
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <table>
-            <tr>
-                <td>Name</td>
-                <td> :
-                    <input type="text" name="name">
-                </td>
-            </tr>
-            <tr>
-                <td>Room</td>
-                <td> :
-                    <input type="text" name="room">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Patient Type
-                </td>
-                <td>
-                    : <input type="radio" name="type" value="child" checked />child
-                    <input type="radio" name="type" value="teen" checked />teen
-                    <input type="radio" name="type" value="young_adult" checked />young adult
-                    <input type="radio" name="type" value="adult" checked />adult
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Gender
-                </td>
-                <td>
-                    : <input type="radio" name="gender" value="Female" checked />female
-                    <input type="radio" name="gender" value="male" checked />male
-                    <input type="radio" name="gender" value="other" checked />other
-                </td>
-            </tr>
-            <tr>
-                <td>Status</td>
-                <td> :
-                    <input type="text" name="status">
-                </td>
-            </tr>
-            <tr>
-                <td>BDate</td>
-                <td> :
-                    <input type="Date" name="date">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="save">
-                </td>
-                <td>
-                    <input type="reset" name="reset">
-                </td>
-            </tr>
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td> :
+                        <input major="text" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td> :
+                        <textarea name="address" rows="5" cols="50"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Major</td>
+                    <td>
+                        <input type="checkbox" id="vehicle1" name="major" value="Informatics">
+                        <label for="vehicle1"> Informatics</label><br>
+                        <input type="checkbox" id="vehicle2" name="major" value="Machine">
+                        <label for="vehicle2"> Machine</label><br>
+                        <input type="checkbox" id="vehicle3" name="major" value="Chemistry">
+                        <label for="vehicle3"> Chemistry</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Enter your certificate
+                    </td>
+                    <td>
+                        <input type="file" name="filesss">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="save">
+                    </td>
+                    <td>
+                        <input type="reset" name="reset">
+                    </td>
+                </tr>
 
-        </table>
-    </form>
+            </table>
+        </form>
 
-    <?php
-    if (!empty($name) && !empty($room) && !empty($type) && !empty($gender)) {
-        echo "<h2> Welcome </h2>";
-        echo "Name   : " . $name . "<br>";
-        echo "Room   : " . $room . "<br>";
-        echo "Type   : " . $type . "<br>";
-        echo "Gender : " . $gender . "<br>";
-        echo "Status : " . $status . "<br>";
-        echo "Date   : " . $date . "<br>";
-    } ?>
+        <?php
+        if (!empty($name) && !empty($address) && !empty($major)) {
+            echo "<h2> Welcome </h2>";
+            echo "Name   : " . $name . "<br>";
+            echo "address   : " . $address . "<br>";
+            echo "major   : " . $major . "<br>";
+            echo "filesss : " . $filesss . "<br>";
+        } ?>
 
-</body>
+    </body>
 
-</html>
+    </html>
