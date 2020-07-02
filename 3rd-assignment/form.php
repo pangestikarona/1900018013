@@ -37,7 +37,7 @@
                 <tr>
                     <td>Major</td>
                     <td>
-                        <input type="checkbox" id="vehicle1" name="major" value="Informatics">
+                        <input type="checkbox"  id="vehicle1" name="major" value="Informatics">
                         <label for="vehicle1"> Informatics</label><br>
                         <input type="checkbox" id="vehicle2" name="major" value="Machine">
                         <label for="vehicle2"> Machine</label><br>
