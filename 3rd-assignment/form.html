@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Form</title>
+	<style type="text/css">
+		.button_submit {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+
+		.button_reset {
+			background-color: #dc3545;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+		}
+
+		.display {
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+		}
+	</style>
 </head>
+
 <body>
-	<h1 align="center">New student application forms</h1>
-	<form >
-		<table>
+	<h1 align="center">New student application form</h1>
+	<form method="POST" action="form.php">
+		<table class="display">
 			<tr>
 				<td>Name</td>
 				<td> :
-					<input type="text" name="name">
+					<input type="text" name="name" id="name">
 				</td>
 			</tr>
 			<tr>
 				<td>Address</td>
 				<td> :
-					<textarea name="Address" rows="5" cols="50"></textarea>
+					<textarea name="address" id="address" rows="5" cols="50"></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td>Major</td>
-				<td> 
-					<input type="checkbox" id="vehicle1" name="major1" value="Informatics">
-  					<label for="vehicle1"> Informatics</label><br>
-  					<input type="checkbox" id="vehicle2" name="major2" value="Machine">
-  					<label for="vehicle2"> Machine</label><br>
-  					<input type="checkbox" id="vehicle3" name="major3" value="Chemistry">
-  					<label for="vehicle3"> Chemistry</label><br>
+				<td>
+					<input type="radio" id="vehicle1" name="major" class="major" value="Informatics">
+					<label for="vehicle1"> Informatics</label><br>
+					<input type="radio" id="vehicle2" name="major" class="major" value="Machine">
+					<label for="vehicle2"> Machine</label><br>
+					<input type="radio" id="vehicle3" name="major" class="major" value="Chemistry">
+					<label for="vehicle3"> Chemistry</label><br>
 				</td>
 			</tr>
 			<tr>
@@ -40,15 +70,44 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name="save">
+					<input type="submit" name="save" class="button_submit">
 				</td>
 				<td>
-					<input type="reset" name="reset">
+					<input type="reset" name="reset" class="button_reset">
 				</td>
 			</tr>
-			
+
 		</table>
 	</form>
 
+	<script>
+		document.querySelector('form').addEventListener('submit', function (e) {
+			e.preventDefault();
+			var name = document.getElementById('name');
+			var address = document.getElementById('address');
+			var major = document.getElementsByClassName('major');
+
+			if (name.value.trim() === '') {
+				alert("Name is required");
+				return false;
+			}
+
+			if (address.value.trim() === '') {
+				alert("Address is required");
+				return false;
+			}
+
+			if (!major[0].checked && !major[1].checked && !major[2].checked) {
+				alert("Major is required");
+				return false;
+
+			}
+
+			this.submit()
+
+		})
+	</script>
+
 </body>
+
 </html>
